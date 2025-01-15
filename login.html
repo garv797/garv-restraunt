@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+   
+</head>
+
+<body>
+    <form action="/submit.php">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter name">
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" placeholder="Enter phone">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Write email">
+        </div>
+        <div>
+            <label for="date">Date</label>
+            <input type="date" id="date">
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <select id="gender" required>
+                <option value="" disabled selected>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="state">State</label>
+            <select name="state" id="state" required>
+                <option value="" disabled selected>State</option>
+                <option value="delhi">Delhi</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="kolkata">Kolkata</option>
+                <option value="punjab">Punjab</option>
+            </select>
+        </div>
+        <p>Fav Food</p>
+        <div>
+            <label for="cake">Cake</label>
+            <input id="cake" type="radio" name="fav_food" value="cake">
+            <label for="chips">Chips</label>
+            <input type="radio" name="fav_food" id="chips" value="chips">
+            <label for="choco">Choco</label>
+            <input type="radio" name="fav_food" id="choco" value="choco">
+        </div>
+        <div>
+            <label for="terms">I agree</label>
+            <input id="terms" type="checkbox" required>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+        <DIv><label for="happy">happy?</label>
+        <input type="checkbox" required></DIv>
+    </form>
+    
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff9e6; /* Light yellow background */
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    form {
+        background-color: #ffd700; /* Golden yellow */
+        padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ffecb3; /* Light yellow */
+    border-radius: 5px;
+    background-color: #fff9e6; /* Lighter yellow */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background-color: #ff8c00; /* Dark orange */
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #e67600; /* Slightly darker orange */
+}
+
+option {
+    padding: 5px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff8c00;
+    margin-bottom: 10px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #ff8c00;
+}
+
+input[type="checkbox"]:checked + label {
+    color: #ff8c00; /* Highlight label when checkbox is checked */
+}
+
+</style>
+
+</body>
+
+</html>

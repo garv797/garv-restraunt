@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/submit.php">
+        <div>
+
+            <label for="chowmien">chowmien</label>
+            <input type="checkbox" id="chowmien">
+            <input type="number" id="chowmien" min="0">
+        </div>
+        <div>
+            <label for="burger">burger</label>
+            <input type="checkbox" id="burger">
+            <input type="number" id="burger" min="0">
+        </div>
+        <div>
+            <label for="butter chicken">butter chicken</label>
+            <input type="checkbox" id="butter chicken">
+            <input type="number" id="butter chicken" min="0">
+
+        </div>
+        <div>
+
+            <label for="french fries">french fries</label>
+            <input type="checkbox" id="french fries">
+            <input type="number" id="french fries" min="0">
+        </div>
+        <div>
+
+            <label for="pasta">pasta</label>
+            <input type="checkbox" id="pasta">
+            <input type="number" id="pasta" min="0">
+        </div>
+        <div>
+
+            <label for="sandwich">sandwich</label>
+            <input type="checkbox" id="sandwich">
+            <input type="number" id="sandwich" min="0">
+        </div>
+        <div>
+            <label for="manchurian">manchurian</label>
+            <input type="checkbox" id="manchurian">
+            <input type="number" id="manchurian" min="0">
+        </div>
+        <div>
+
+            <label for="chilli potato">chilli potato</label>
+            <input type="checkbox" id="chilli potato">
+            <input type="number" id="chilli potato" min="0">
+        </div>
+        <div>
+
+            <label for="coke">coke</label>
+            <input type="checkbox" id="coke">
+            <input type="number" id="coke" min="0">
+        </div>
+        <div>
+
+            <label for="fanta">fanta</label>
+            <input type="checkbox" id="fanta">
+            <input type="number" id="fanta" min="0">
+        </div>
+        <div>
+            <label for="PLACE ORDER">PLACE ORDER</label>
+
+            <input type="submit">
+
+        </div>
+    </form>
+    <style>
+        /* Enhanced style.css for yellow-themed form */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff9e6;
+            /* Light yellow background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #ffd700;
+            /* Golden yellow */
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        form div.checkbox-group {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #ffecb3;
+            /* Light yellow */
+            border-radius: 5px;
+            background-color: #fff9e6;
+            /* Lighter yellow */
+        }
+
+        input[type="number"] {
+            max-width: 60px;
+            /* Restrict width for number inputs */
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #ff8c00;
+            /* Dark orange */
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e67600;
+            /* Slightly darker orange */
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #ff8c00;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-right: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff8c00;
+        }
+
+        /* Add hover effect to checkboxes */
+        input[type="checkbox"]:hover+label {
+            color: #ff8c00;
+            text-decoration: underline;
+        }
+    </style>
+    <script>// script.js for yellow-themed form
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all number inputs
+            const numberInputs = document.querySelectorAll('input[type="number"]');
+
+            // Disable number inputs if the checkbox is not checked
+            numberInputs.forEach((numberInput) => {
+                const relatedCheckbox = numberInput.previousElementSibling;
+
+                // Initially disable number input
+                numberInput.disabled = !relatedCheckbox.checked;
+
+                // Toggle disable state based on checkbox
+                relatedCheckbox.addEventListener("change", function () {
+                    numberInput.disabled = !this.checked;
+
+                    // Reset number value if unchecked
+                    if (!this.checked) {
+                        numberInput.value = "";
+                    }
+                });
+            });
+
+            // Handle form submission
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default submission
+
+                const selectedItems = [];
+                numberInputs.forEach((input) => {
+                    if (input.value && !input.disabled) {
+                        selectedItems.push({
+                            item: input.previousElementSibling.id,
+                            quantity: input.value,
+                        });
+                    }
+                });
+
+                if (selectedItems.length > 0) {
+                    alert("Order placed successfully! THANKS FOR VISITING SITE\n" + JSON.stringify(selectedItems, null, 2));
+                } else {
+                    alert("Please select at least one item to order.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
