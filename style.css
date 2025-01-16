@@ -49,7 +49,7 @@ header ul li a {
 }
 
 header ul li a:hover {
-    background: url(/img/parata.png);
+    background: url(./img/parata.png);
     background-position: center;
     background-size: cover;
     /* Light yellow */
@@ -59,7 +59,7 @@ header ul li a:hover {
 main {
     text-align: center;
     padding: 20px;
-    background: url(/img/BG.jpg);
+    background: url(./img/BG.jpg);
     background-position: center;
     background-size: cover;
     min-height: 80vh;
